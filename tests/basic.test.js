@@ -29,6 +29,10 @@ test('My first testcafe test', async t=> {
     const submit_button = Selector('#submit-button')
     const article_text= Selector('#article-header').innerText
     
+    // whole page target
+    // await t.takeScreenshot({fullPage:true}) 
+    await t.takeElementScreenshot(submit_button) //single element
+
     await t.typeText(developer_name_input,'John')
     await t.wait(2000)
     await t.click(submit_button)
