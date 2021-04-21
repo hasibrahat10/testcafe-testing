@@ -1,0 +1,22 @@
+{
+  "name": "testcafe-testing",
+  "version": "1.0.0",
+  "description": "Testcafe Autoamation testing",
+  "main": "index.js",
+  "scripts": {
+    "test:chrome": "testcafe chrome ./tests",
+    "test:chrome:headless": "testcafe chrome:headless ./tests",
+    "test:firefox": "testcafe  firefox ./tests"
+  },
+  "keywords": [
+    "TestCafe",
+    "Automation",
+    "Testing"
+  ],
+  "author": "Hasibul hasan",
+  "license": "ISC",
+  "dependencies": {
+    "prettier": "^2.2.1",
+    "testcafe": "^1.14.0"
+  }
+}
