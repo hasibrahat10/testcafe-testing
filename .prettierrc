@@ -5,7 +5,9 @@
     "tabWidth":2,
     "bracketSpacing":true,
     "arrowparens":"avoid",
-    "trailingComma":"es5"
+    "trailingComma":"es5",
+    
+
 
 
 }

@@ -1,5 +1,12 @@
 {
     "screenshotPath":"./screenshots",
-    "screenshotPathPattern":"${DATE}_${TImE}/${FIXTURE}.png"
+    "screenshotPathPattern":"${DATE}_${TImE}/${FIXTURE}.png",
+    "quarantineMode": true,
+    "pageLoadTimeout": 1000,
+    "pageRequestTimeout": 8000,
+     "browserInitTimeout": 180000,
+       "selectorTimeout": 3000,
+        "assertionTimeout": 1000
+
 
 }
