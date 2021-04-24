@@ -1,4 +1,9 @@
 import {Selector, } from 'testcafe'
+import Navbar from '../tests/page-objects/component/navbar'
+import LoginPage from '../tests/page-objects/pages/LoginPage'
+
+const navbar = new Navbar()
+const loginPage = new LoginPage()
 
 //prettier-ignore
 fixture`Login Test`
@@ -26,17 +31,20 @@ fixture`Login Test`
 
 
 test.skip('User cannot login with invalid creentials', async t=>{
-    const signInButton = Selector('#signin_button')
-    await t.click(signInButton)
+    // const signInButton = Selector('#signin_button')
+     await t.click(navbar.signInButton)
+ 
 
     const loginForm = Selector('#login_form')
     await t.expect(loginForm.exists).ok()
 
-    const userNameInput = Selector('#user_login')
-    const userPassInput = Selector('#user_password')
+    // const userNameInput = Selector('#user_login')
+    // const userPassInput = Selector('#user_password')
 
-    await t.typeText(userNameInput,'invalid username',{paste:true})
-    await t.typeText(userPassInput,'invalid password',{paste:true})
+    // await t.typeText(userNameInput,'invalid username',{paste:true})
+    // await t.typeText(userPassInput,'invalid password',{paste:true})
+
+    loginPage.loginToApp('invalid username', 'invalid password')
 
     await t.wait(2000)
     const submitButton = Selector('.btn-primary')
@@ -48,17 +56,19 @@ test.skip('User cannot login with invalid creentials', async t=>{
 })
 
 test('User can login with valid creentials', async t=>{
-    const signInButton = Selector('#signin_button')
-    await t.click(signInButton)
+    // const signInButton = Selector('#signin_button')
+    await t.click(navbar.signInButton)
 
     const loginForm = Selector('#login_form')
     await t.expect(loginForm.exists).ok()
 
-    const userNameInput = Selector('#user_login')
-    const userPassInput = Selector('#user_password')
+    // const userNameInput = Selector('#user_login')
+    // const userPassInput = Selector('#user_password')
 
-    await t.typeText(userNameInput,'username',{paste:true})
-    await t.typeText(userPassInput,'password',{paste:true})
+    // await t.typeText(userNameInput,'username',{paste:true})
+    // await t.typeText(userPassInput,'password',{paste:true})
+
+    loginPage.loginToApp('username', 'password')
 
     await t.wait(2000)
     const submitButton = Selector('.btn-primary')

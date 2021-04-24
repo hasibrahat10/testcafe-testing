@@ -1,4 +1,7 @@
 import {Selector, } from 'testcafe'
+import Navbar from '../tests/page-objects/component/navbar'
+
+const navbar = new Navbar()
 
 //prettier-ignore
 fixture`Passoword reset test`
@@ -27,13 +30,13 @@ fixture`Passoword reset test`
 
 test.skip('User can send a request to change the password', async t=>{
     //Selectors
-    const signInButton = Selector('#signin_button')
+    // const signInButton = Selector('#signin_button')
     const linkToForgottenPass = Selector('a').withText('Forgot your password ?')
     const emailID= Selector('#user_email')
     const successMessage= Selector('div').innerText 
 
     //Actions
-    await t.click(signInButton)
+    await t.click(navbar.signInButton)
     await t.click(linkToForgottenPass)
     await t.typeText(emailID,'email@example.com',{paste:true})
     await t.pressKey('enter')
