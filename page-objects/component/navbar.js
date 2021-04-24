@@ -5,6 +5,8 @@ class Navbar {
     constructor(){
         this.searchItem = Selector('#searchTerm')
         this.signInButton = Selector('#signin_button')
+        this.userIcon = Selector('.icon-user')
+        this.logout = Selector('#logout_link')
 
     }
 

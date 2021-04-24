@@ -1,6 +1,5 @@
-import {Selector, } from 'testcafe'
-import Navbar from '../tests/page-objects/component/navbar'
-import SearchResutPage from '../tests/page-objects/pages/SearchResultPage'
+import Navbar from '../page-objects/component/navbar'
+import SearchResutPage from '../page-objects/pages/SearchResultPage'
 
 const navbar = new Navbar()
 const SearchResultPage = new SearchResutPage()

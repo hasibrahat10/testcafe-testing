@@ -1,7 +1,10 @@
-import {Selector, } from 'testcafe'
-import Navbar from '../tests/page-objects/component/navbar'
+import Navbar from '../page-objects/component/navbar'
+import LoginPage from '../page-objects/pages/LoginPage'
+import ForgottenPasswordPage from '../page-objects/pages/ForgottenPasswordPage'
 
 const navbar = new Navbar()
+const loginPage = new LoginPage()
+const forgottenPasswordPage = new ForgottenPasswordPage()
 
 //prettier-ignore
 fixture`Passoword reset test`
@@ -31,21 +34,21 @@ fixture`Passoword reset test`
 test.skip('User can send a request to change the password', async t=>{
     //Selectors
     // const signInButton = Selector('#signin_button')
-    const linkToForgottenPass = Selector('a').withText('Forgot your password ?')
-    const emailID= Selector('#user_email')
-    const successMessage= Selector('div').innerText 
+    // const linkToForgottenPass = Selector('a').withText('Forgot your password ?')
+    // const emailID= Selector('#user_email')
+    // const successMessage= Selector('div').innerText 
 
     //Actions
     await t.click(navbar.signInButton)
-    await t.click(linkToForgottenPass)
-    await t.typeText(emailID,'email@example.com',{paste:true})
+    await t.click(loginPage.linkToForgottenPass)
+    await t.typeText(forgottenPasswordPage.emailID,'email@example.com',{paste:true, replace:true})
     await t.pressKey('enter')
 
 
     //Assertions
 
-    await t.expect(successMessage).contains('email@example.com')
-    await t.expect(emailID.exists).notOk()
+    await t.expect(forgottenPasswordPage.successMessage.innerText).contains('email@example.com')
+    await t.expect(forgottenPasswordPage.emailID.exists).notOk()
 
 
 })
